@@ -54,7 +54,20 @@ const T = {
     langCardAr: "العربية", langCardArSub: "التعلّم والتدرّب باللغة العربية",
     langCardEn: "English", langCardEnSub: "Learn and practice in English",
     continueBtn: "המשך לאפליקציה",
+    openToolBtn: "פתיחת הכלי",
+    homeCard1Title: "היכרות עם כלים",
+homeCard1Text: "גישה מהירה לכלים נבחרים לשילוב בהוראה, תכנון ויצירת תוצרים.",
+homeCard2Title: "תרגול מעשי",
+homeCard2Text: "מעבר מהיכרות להתנסות באמצעות פעילויות, מעבדה ומשימות קצרות.",
+homeCard3Title: "שימוש פדגוגי",
+homeCard3Text: "התאמת הכלים לצורכי מורים, מקצועות לימוד ושכבות גיל שונות.",
+homeStartLabel: "המלצה להתחלה",
+homeStartText: "התחילי מהקטלוג, שמרי כלים למועדפים, ואז עברי למעבדת הפרומפטים.",
     heroTitle: "מרחב AI למורים",
+    toolCardTeachersOnly: "מתאים למורים",
+toolCardTeachersAndStudents: "מתאים למורים ולתלמידים",
+toolCardAgePrefix: "גיל:",
+toolCardLastVerified: "נבדק לאחרונה:",
   heroSub: "כלים נבחרים לשילוב בינה מלאכותית בהוראה, בתכנון וביצירת תוצרים",
     startTrack: "התחלת מסלול למידה",
     viewTools: "צפייה בכל הכלים",
@@ -192,7 +205,20 @@ const T = {
     langCardAr: "العربية", langCardArSub: "التعلّم والتدرّب باللغة العربية",
     langCardEn: "English", langCardEnSub: "Learn and practice in English",
     continueBtn: "الانتقال إلى التطبيق",
+    openToolBtn: "فتح الأداة",
+    homeCard1Title: "التعرّف على الأدوات",
+homeCard1Text: "وصول سريع إلى أدوات مختارة لدمجها في التدريس، التخطيط وإنتاج المخرجات.",
+homeCard2Title: "تدريب عملي",
+homeCard2Text: "الانتقال من التعرّف إلى التجربة من خلال أنشطة، مختبر ومهام قصيرة.",
+homeCard3Title: "استخدام تربوي",
+homeCard3Text: "ملاءمة الأدوات لاحتياجات المعلّمين، المواد الدراسية والفئات العمرية المختلفة.",
+homeStartLabel: "اقتراح للبداية",
+homeStartText: "ابدئي من الدليل، احفظي الأدوات في المفضلة، ثم انتقلي إلى مختبر البرومبتات.",
     heroTitle: "تعلّموا الذكاء الاصطناعي بوتيرتكم",
+    toolCardTeachersOnly: "مناسب للمعلمين",
+toolCardTeachersAndStudents: "مناسب للمعلمين والطلاب",
+toolCardAgePrefix: "العمر:",
+toolCardLastVerified: "آخر فحص:",
     heroSub: "تعرّفوا وتدرّبوا وادمجوا أدوات الذكاء الاصطناعي في عملكم التعليمي",
     startTrack: "بدء مسار التعلّم",
     viewTools: "عرض كل الأدوات",
@@ -330,7 +356,20 @@ const T = {
     langCardAr: "العربية", langCardArSub: "التعلّم والتدرّب باللغة العربية",
     langCardEn: "English", langCardEnSub: "Learn and practice in English",
     continueBtn: "Continue to app",
+    openToolBtn: "Open Tool",
+    homeCard1Title: "Explore tools",
+homeCard1Text: "Quick access to selected tools for teaching, planning, and creating outputs.",
+homeCard2Title: "Hands-on practice",
+homeCard2Text: "Move from exploration to practice through activities, a lab, and short tasks.",
+homeCard3Title: "Pedagogical use",
+homeCard3Text: "Match tools to teacher needs, subject areas, and different age groups.",
+homeStartLabel: "Suggested starting point",
+homeStartText: "Start with the catalog, save tools to favorites, and then move to the prompt lab.",
     heroTitle: "Learn AI at your own pace",
+    toolCardTeachersOnly: "For teachers",
+toolCardTeachersAndStudents: "For teachers and students",
+toolCardAgePrefix: "Age:",
+toolCardLastVerified: "Last verified:",
     heroSub: "Get to know, practice, and apply AI tools in your teaching",
     startTrack: "Start a learning track",
     viewTools: "Browse all tools",
@@ -969,23 +1008,23 @@ function TopNav({ lang, setLang, screen, setScreen, t, dir }) {
 function HomeScreen({ t, dir, setScreen, loggedIn, setLoggedIn }) {
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
 
-  const highlights = [
-    {
-      title: "היכרות עם כלים",
-      text: "גישה מהירה לכלים נבחרים לשילוב בהוראה, תכנון ויצירת תוצרים.",
-      tone: "from-[#F3ECFF] to-[#EAF7FF]",
-    },
-    {
-      title: "תרגול מעשי",
-      text: "מעבר מהיכרות להתנסות באמצעות פעילויות, מעבדה ומשימות קצרות.",
-      tone: "from-[#EEF9F1] to-[#F7FCEB]",
-    },
-    {
-      title: "שימוש פדגוגי",
-      text: "התאמת הכלים לצורכי מורים, מקצועות לימוד ושכבות גיל שונות.",
-      tone: "from-[#FFF4E8] to-[#FDEAF1]",
-    },
-  ];
+ const highlights = [
+  {
+    title: t.homeCard1Title,
+    text: t.homeCard1Text,
+    tone: "from-[#F3ECFF] to-[#EAF7FF]",
+  },
+  {
+    title: t.homeCard2Title,
+    text: t.homeCard2Text,
+    tone: "from-[#EEF9F1] to-[#F7FCEB]",
+  },
+  {
+    title: t.homeCard3Title,
+    text: t.homeCard3Text,
+    tone: "from-[#FFF4E8] to-[#FDEAF1]",
+  },
+];
 
   return (
     <div className="pb-16">
@@ -1100,10 +1139,10 @@ function HomeScreen({ t, dir, setScreen, loggedIn, setLoggedIn }) {
               </div>
 
               <div className="rounded-3xl border border-dashed border-[#DCCFF7] bg-white p-5">
-                <div className="text-sm text-[#8A8097]">המלצה להתחלה</div>
-                <div className="mt-2 text-base font-bold text-[#453A5C]">
-                  התחילי מהקטלוג, שמרי כלים למועדפים, ואז עברי למעבדת הפרומפטים.
-                </div>
+               <div className="text-sm text-[#8A8097]">{t.homeStartLabel}</div>
+<div className="mt-2 text-base font-bold text-[#453A5C]">
+  {t.homeStartText}
+</div>
               </div>
             </div>
           </Card>
@@ -1348,12 +1387,11 @@ function ToolCard({ tool, t, lang, isFav, onToggleFav, onOpen })
 
       <div className="mt-4 flex flex-wrap gap-2">
         <span className="rounded-full bg-[#F8F4FE] px-3 py-1 text-xs font-medium text-[#6F5B91]">
-          גיל: {tool.ages}
+         {t.toolCardAgePrefix} {tool.ages}
         </span>
 
         <span className="rounded-full bg-[#F5FAFF] px-3 py-1 text-xs font-medium text-[#5E88A8]">
-          {t.lastVerified}: {tool.lastVerified}
-        </span>
+          {t.toolCardLastVerified} {tool.lastVerified}        </span>
       </div>
 
       <div className="mt-5 flex items-center gap-2">
@@ -1610,7 +1648,7 @@ function ToolDetailScreen({ t, lang, tool, isFav, toggleFav, setScreen }) {
     <a href={tool.url} target="_blank" rel="noreferrer">
       <Button>
         <ExternalLink size={15} />
-        פתיחת הכלי
+       {t.openToolBtn}
       </Button>
     </a>
   )}
