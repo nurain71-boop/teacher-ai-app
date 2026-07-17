@@ -479,6 +479,7 @@ const DEMO_TOOLS = [
     ages: "12+",
     langs: ["he", "en", "ar"],
     lastVerified: "2026-07-15",
+    url: "https://gemini.google.com/",
     desc: {
       he: "כלי ליצירת רעיונות, כתיבה, תכנון שיעורים, ניסוח פרומפטים ובניית תכנים לימודיים.",
       ar: "أداة لتوليد الأفكار، الكتابة، تخطيط الدروس، صياغة البرومبتات وبناء محتوى تعليمي.",
@@ -497,6 +498,7 @@ const DEMO_TOOLS = [
     ages: "12+",
     langs: ["he", "en", "ar"],
     lastVerified: "2026-07-15",
+    url: "https://notebooklm.google.com/",
     desc: {
       he: "כלי לעבודה עם מקורות מידע, סיכום מסמכים, השוואת טקסטים, בניית שאלות ותוצרי למידה.",
       ar: "أداة للعمل مع مصادر المعلومات، تلخيص المستندات، مقارنة النصوص، وبناء أسئلة ومنتجات تعلم.",
@@ -515,6 +517,7 @@ const DEMO_TOOLS = [
     ages: "מורים בלבד",
     langs: ["he", "en", "ar"],
     lastVerified: "2026-07-15",
+    url: "https://gemini.google.com/",
     desc: {
       he: "כלי ליצירת תמונות, המחשות חזותיות ועיצוב חומרים לימודיים בצורה יצירתית ומהירה.",
       ar: "أداة لإنشاء الصور، الشروحات البصرية وتصميم مواد تعليمية بشكل إبداعي وسريع.",
@@ -533,6 +536,7 @@ const DEMO_TOOLS = [
     ages: "מורים בלבד",
     langs: ["he", "en", "ar"],
     lastVerified: "2026-07-15",
+    url: "https://gemini.google.com/gems/view",
     desc: {
       he: "כלי ליצירת עוזרי AI מותאמים אישית לצרכים פדגוגיים, מקצועיים וארגוניים.",
       ar: "أداة لإنشاء مساعدين مخصصين بالذكاء الاصطناعي وفق احتياجات تربوية ومهنية وتنظيمية.",
@@ -551,7 +555,8 @@ const DEMO_TOOLS = [
     ages: "מורים בלבד",
     langs: ["en"],
     lastVerified: "2026-07-15",
-    desc: {
+    url:"https://app.magicschool.ai/auth/signin"
+,    desc: {
       he: "כלי ליצירת משימות, מערכי שיעור, רעיונות להוראה, משוב וחומרי למידה למורים.",
       ar: "أداة لإنتاج مهام، خطط دروس، أفكار تعليمية، تغذية راجعة ومواد تعليمية للمعلمين.",
       en: "A tool for generating assignments, lesson plans, teaching ideas, feedback, and teacher materials."
@@ -569,6 +574,7 @@ const DEMO_TOOLS = [
     ages: "12+",
     langs: ["he", "en", "ar"],
     lastVerified: "2026-07-15",
+    url: "https://www.canva.com/he_il/",
     desc: {
       he: "כלי לעיצוב מצגות, דפי עבודה, פוסטרים, סרטונים ותוצרים חזותיים ללמידה.",
       ar: "أداة لتصميم عروض، أوراق عمل، ملصقات، فيديوهات ومنتجات بصرية للتعلم.",
@@ -587,6 +593,7 @@ const DEMO_TOOLS = [
     ages: "מורים בלבד",
     langs: ["en"],
     lastVerified: "2026-07-15",
+    url: "https://gamma.app/he",
     desc: {
       he: "כלי ליצירת מצגות ודפי תוכן באופן מהיר, חזותי ואינטראקטיבי.",
       ar: "أداة لإنشاء عروض وصفحات محتوى بسرعة وبشكل بصري وتفاعلي.",
@@ -605,6 +612,7 @@ const DEMO_TOOLS = [
     ages: "מורים בלבד",
     langs: ["en"],
     lastVerified: "2026-07-15",
+    url: "https://briskteaching.com/",
     desc: {
       he: "כלי לסיוע במשוב, התאמת טקסטים, יצירת שאלות, תכנון והנגשת חומרים.",
       ar: "أداة للمساعدة في التغذية الراجعة، تكييف النصوص، إنشاء الأسئلة وتخطيط المواد.",
@@ -1597,16 +1605,27 @@ function ToolDetailScreen({ t, lang, tool, isFav, toggleFav, setScreen }) {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Button onClick={() => setScreen("lab")}>{t.startPractice}</Button>
+      <div className="mt-10 flex flex-wrap gap-3">
+  {tool.url && (
+    <a href={tool.url} target="_blank" rel="noreferrer">
+      <Button>
+        <ExternalLink size={15} />
+        פתיחת הכלי
+      </Button>
+    </a>
+  )}
 
-          <a href={OFFICIAL_CATALOG_URL} target="_blank" rel="noreferrer">
-            <Button variant="secondary">
-              <ExternalLink size={15} />
-              {t.officialPage}
-            </Button>
-          </a>
-        </div>
+  <Button variant="secondary" onClick={() => setScreen("lab")}>
+    {t.startPractice}
+  </Button>
+
+  <a href={OFFICIAL_CATALOG_URL} target="_blank" rel="noreferrer">
+    <Button variant="ghost">
+      <ExternalLink size={15} />
+      {t.officialPage}
+    </Button>
+  </a>
+</div>
       </Card>
     </div>
   );
