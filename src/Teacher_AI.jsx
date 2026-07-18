@@ -74,7 +74,7 @@ focusBoxTitle: "מוקדי שימוש",
 focusBoxText: "תכנון, כתיבה, תמונות, תרגול והערכה",
     heroTitle: "מרחב AI למורים",
     toolCardTeachersOnly: "מתאים למורים",
-toolCardTeachersAndStudents: "מתאים למורים ולתלמידים",
+toolCardTeachersAndStudents: "AGES ולתלמידים",
 toolCardAgePrefix: "גיל:",
 toolCardLastVerified: "נבדק לאחרונה:",
   heroSub: "כלים נבחרים לשילוב בינה מלאכותית בהוראה, בתכנון וביצירת תוצרים",
@@ -118,7 +118,7 @@ toolCardLastVerified: "נבדק לאחרונה:",
     searchPlaceholder: "חיפוש חכם — לדוגמה: \"כלי ליצירת מצגת\"",
     filterAll: "הכול",
     filterFree: "חינמי", filterPaid: "בתשלום",
-    filterStudent: "מתאים לתלמידים", filterTeacher: "מתאים למורים",
+    filterStudent: "מתאים לתלמידים", filterTeacher: "ages",
     approved: "מאושר משרד החינוך",
     needsCheck: "יש לבדוק בקטלוג משרד החינוך",
     lastVerified: "נבדק לאחרונה",
@@ -580,7 +580,7 @@ const DEMO_TOOLS = [
     student: false,
     parentApproval: false,
     registration: true,
-    ages: "מורים בלבד",
+    ages: "",
     langs: ["he", "en", "ar"],
     lastVerified: "2026-07-15",
     url: "https://gemini.google.com/",
@@ -599,7 +599,7 @@ const DEMO_TOOLS = [
     student: false,
     parentApproval: false,
     registration: true,
-    ages: "מורים בלבד",
+    ages: "",
     langs: ["he", "en", "ar"],
     lastVerified: "2026-07-15",
     url: "https://gemini.google.com/gems/view",
@@ -618,7 +618,7 @@ const DEMO_TOOLS = [
     student: false,
     parentApproval: false,
     registration: true,
-    ages: "מורים בלבד",
+    ages: "",
     langs: ["en"],
     lastVerified: "2026-07-15",
     url:"https://app.magicschool.ai/auth/signin"
@@ -656,7 +656,7 @@ const DEMO_TOOLS = [
     student: false,
     parentApproval: false,
     registration: true,
-    ages: "מורים בלבד",
+   ages: "",
     langs: ["en"],
     lastVerified: "2026-07-15",
     url: "https://gamma.app/he",
@@ -675,7 +675,7 @@ const DEMO_TOOLS = [
     student: false,
     parentApproval: false,
     registration: true,
-    ages: "מורים בלבד",
+    ages: "",
     langs: ["en"],
     lastVerified: "2026-07-15",
     url: "https://briskteaching.com/",
@@ -1417,9 +1417,11 @@ function ToolCard({ tool, t, lang, isFav, onToggleFav, onOpen })
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        <span className="rounded-full bg-[#F8F4FE] px-3 py-1 text-xs font-medium text-[#6F5B91]">
-         {t.toolCardAgePrefix} {tool.ages}
-        </span>
+        {tool.ages && (
+  <span className="rounded-full bg-[#F8F4FE] px-3 py-1 text-xs font-medium text-[#6F5B91]">
+    {t.toolCardAgePrefix} {tool.ages}
+  </span>
+)}
 
         <span className="rounded-full bg-[#F5FAFF] px-3 py-1 text-xs font-medium text-[#5E88A8]">
           {t.toolCardLastVerified} {tool.lastVerified}        </span>
@@ -1599,7 +1601,11 @@ function ToolDetailScreen({ t, lang, tool, isFav, toggleFav, setScreen }) {
                   <Pill tone="gray">{t.filterPaid}</Pill>
                 )}
 
-                {tool.teacher && <Pill tone="sky">מתאים למורים</Pill>}
+                {tool.teacher && (
+  <Pill tone="sky">
+    {tool.student ? t.toolCardTeachersAndStudents : t.toolCardTeachersOnly}
+  </Pill>
+)}
 
                 {tool.parentApproval && <Pill tone="pink">{t.parentApproval}</Pill>}
               </div>
