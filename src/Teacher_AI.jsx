@@ -1407,7 +1407,11 @@ function ToolCard({ tool, t, lang, isFav, onToggleFav, onOpen })
           <Pill tone="gray">{t.filterPaid}</Pill>
         )}
 
-        {tool.teacher && <Pill tone="sky">מתאים למורים</Pill>}
+        {tool.teacher && (
+  <Pill tone="sky">
+    {tool.student ? t.toolCardTeachersAndStudents : t.toolCardTeachersOnly}
+  </Pill>
+)}
 
         {tool.parentApproval && <Pill tone="pink">{t.parentApproval}</Pill>}
       </div>
