@@ -63,6 +63,15 @@ homeCard3Title: "שימוש פדגוגי",
 homeCard3Text: "התאמת הכלים לצורכי מורים, מקצועות לימוד ושכבות גיל שונות.",
 homeStartLabel: "המלצה להתחלה",
 homeStartText: "התחילי מהקטלוג, שמרי כלים למועדפים, ואז עברי למעבדת הפרומפטים.",
+homePanelEyebrow: "למורים AI מרחב",
+homePanelTitle: "למידה, תרגול ושיתוף",
+topToolsTitle: "כלים מובילים",
+topToolsList: "Gemini • NotebookLM • Nano Banana • Gems",
+topToolsBadge: "פעיל",
+catalogBoxTitle: "קטלוג כלים",
+catalogBoxText: "כלים נבחרים להוראה, תכנון ויצירת תוצרים",
+focusBoxTitle: "מוקדי שימוש",
+focusBoxText: "תכנון, כתיבה, תמונות, תרגול והערכה",
     heroTitle: "מרחב AI למורים",
     toolCardTeachersOnly: "מתאים למורים",
 toolCardTeachersAndStudents: "מתאים למורים ולתלמידים",
@@ -214,7 +223,16 @@ homeCard3Title: "استخدام تربوي",
 homeCard3Text: "ملاءمة الأدوات لاحتياجات المعلّمين، المواد الدراسية والفئات العمرية المختلفة.",
 homeStartLabel: "اقتراح للبداية",
 homeStartText: "ابدئي من الدليل، احفظي الأدوات في المفضلة، ثم انتقلي إلى مختبر البرومبتات.",
-    heroTitle: "تعلّموا الذكاء الاصطناعي بوتيرتكم",
+homePanelEyebrow: "مساحة AI للمعلمين",
+homePanelTitle: "تعلّم، تدريب ومشاركة",
+topToolsTitle: "أدوات بارزة",
+topToolsList: "Gemini • NotebookLM • Nano Banana • Gems",
+topToolsBadge: "نشط",
+catalogBoxTitle: "دليل الأدوات",
+catalogBoxText: "أدوات مختارة للتدريس، التخطيط وإنتاج المخرجات",
+focusBoxTitle: "مجالات الاستخدام",
+focusBoxText: "تخطيط، كتابة، صور، تدريب وتقييم",
+    heroTitle: "تعلّموا الذكاء الاصطناعي ",
     toolCardTeachersOnly: "مناسب للمعلمين",
 toolCardTeachersAndStudents: "مناسب للمعلمين والطلاب",
 toolCardAgePrefix: "العمر:",
@@ -365,6 +383,15 @@ homeCard3Title: "Pedagogical use",
 homeCard3Text: "Match tools to teacher needs, subject areas, and different age groups.",
 homeStartLabel: "Suggested starting point",
 homeStartText: "Start with the catalog, save tools to favorites, and then move to the prompt lab.",
+homePanelEyebrow: "AI space for teachers",
+homePanelTitle: "Learn, practice, and share",
+topToolsTitle: "Top tools",
+topToolsList: "Gemini • NotebookLM • Nano Banana • Gems",
+topToolsBadge: "Active",
+catalogBoxTitle: "Tool catalog",
+catalogBoxText: "Selected tools for teaching, planning, and creating outputs",
+focusBoxTitle: "Use cases",
+focusBoxText: "Planning, writing, images, practice, and assessment",
     heroTitle: "Learn AI at your own pace",
     toolCardTeachersOnly: "For teachers",
 toolCardTeachersAndStudents: "For teachers and students",
@@ -1089,10 +1116,10 @@ function HomeScreen({ t, dir, setScreen, loggedIn, setLoggedIn }) {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-sm font-medium text-[#8A8097]">
-                  מרחב AI למורים
+{t.homePanelEyebrow}
                 </div>
                 <div className="mt-1 text-2xl font-extrabold text-[#453A5C]">
-                  למידה, תרגול ושיתוף
+{t.homePanelTitle}
                 </div>
               </div>
 
@@ -1105,35 +1132,35 @@ function HomeScreen({ t, dir, setScreen, loggedIn, setLoggedIn }) {
               <div className="rounded-3xl border border-[#EEE8F7] bg-[#FCFAFF] p-5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-sm text-[#8A8097]">כלים מובילים</div>
+                    <div className="text-sm text-[#8A8097]">{t.topToolsTitle}</div>
                     <div className="mt-1 text-lg font-bold text-[#453A5C]">
-                      Gemini · NotebookLM · Nano Banana · Gems
+                      {t.topToolsList}
                     </div>
                   </div>
                   <div className="rounded-full bg-[#EEF9F1] px-3 py-1 text-xs font-semibold text-[#4B8A67]">
-                    פעיל
+                    {t.topToolsBadge}
                   </div>
                 </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-3xl border border-[#EEE8F7] bg-[#F8F4FE] p-5">
-                  <div className="text-sm text-[#8A8097]">קטלוג כלים</div>
+                  <div className="text-sm text-[#8A8097]">{t.catalogBoxTitle}</div>
                   <div className="mt-2 text-3xl font-extrabold text-[#654A9E]">
                     8
                   </div>
                   <div className="mt-2 text-sm text-[#6F6880]">
-                    כלים נבחרים להוראה, תכנון ויצירת תוצרים
+                   {t.catalogBoxText}
                   </div>
                 </div>
 
                 <div className="rounded-3xl border border-[#EEE8F7] bg-[#EEF9F1] p-5">
-                  <div className="text-sm text-[#6E8B78]">מוקדי שימוש</div>
+                  <div className="text-sm text-[#6E8B78]">{t.focusBoxTitle} </div>
                   <div className="mt-2 text-3xl font-extrabold text-[#4B8A67]">
                     4
                   </div>
                   <div className="mt-2 text-sm text-[#6F6880]">
-                    תכנון, כתיבה, תמונות, תרגול והערכה
+                   {t.focusBoxText}
                   </div>
                 </div>
               </div>
